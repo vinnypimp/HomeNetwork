@@ -87,7 +87,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Data Layer\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="HomeNetwork\HomeNetwork.dbml">
@@ -104,6 +103,7 @@
     <Content Include="HomeNetwork\HomeNetwork.dbml.namePrefs">
       <DependentUpon>HomeNetwork.dbml</DependentUpon>
     </Content>
+    <Content Include="Data Layer\Northwind.bak" />
     <None Include="Properties\PublishProfiles\Local Publish.pubxml" />
     <Content Include="Web.config" />
     <None Include="Properties\PublishProfiles\TwinHome.pubxml" />
