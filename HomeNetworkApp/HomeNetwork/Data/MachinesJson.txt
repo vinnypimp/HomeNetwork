@@ -1,0 +1,46 @@
+{
+Machines: [
+{
+HostName: "LENOVO-Y500",
+IPaddress: "12.6.9.55",
+Location: "Garage",
+LocationID: 0,
+MacAddress: "11.22.33.44.55",
+MachineID: "LENOVOY500",
+MachineName: "LENOVO Y500",
+MachineType: "Windows Server",
+MachineTypeID: 0,
+NetworkDeviceID: null,
+NetworkDeviceName: "AIRPORT TIME CAPSULE",
+Static: "False"
+},
+{
+HostName: "GINA-N5110",
+IPaddress: "12.6.9.101",
+Location: "Garage",
+LocationID: 0,
+MacAddress: "10.20.25.55.AW",
+MachineID: "N5110",
+MachineName: "GINA-N5110",
+MachineType: "Windows Server",
+MachineTypeID: 0,
+NetworkDeviceID: null,
+NetworkDeviceName: "AIRPORT TIME CAPSULE",
+Static: "False"
+},
+{
+HostName: "WIN7ULT64",
+IPaddress: "12.6.9.55",
+Location: "Garage",
+LocationID: 0,
+MacAddress: "11-AA-22-BB-55",
+MachineID: "WIN7ULT641468",
+MachineName: "WIN7ULT64",
+MachineType: "Win Desktop",
+MachineTypeID: 0,
+NetworkDeviceID: null,
+NetworkDeviceName: "AIRPORT TIME CAPSULE",
+Static: "False"
+}
+]
+}

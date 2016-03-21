@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="HomeNetwork" Class="HomeNetworkDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=TwinHome;Initial Catalog=HomeNetwork;Persist Security Info=True;User ID=appDB" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="HomeNetworkConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.vwUsers" Member="vwUsers">
+    <Type Name="vwUser">
+      <Column Name="UserID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="MachineName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="varchar(max)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vwNetworkDevices" Member="vwNetworkDevices">
+    <Type Name="vwNetworkDevice">
+      <Column Name="NetworkDeviceID" Type="System.String" DbType="varchar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NetworkDeviceName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="MacAddress" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NetworkDeviceType" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Location" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NetworkPorts" Type="System.Int32" DbType="int" CanBeNull="true" />
+      <Column Name="IPaddress" Type="System.String" DbType="varchar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vwMachines" Member="vwMachines">
+    <Type Name="vwMachine">
+      <Column Name="MachineID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MachineName" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="MacAddress" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IPaddress" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Static" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="MachineType" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NetworkDeviceName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Location" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="HostName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vwRouterNames" Member="vwRouterNames">
+    <Type Name="vwRouterName">
+      <Column Name="Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vwRouterSetups" Member="vwRouterSetups">
+    <Type Name="vwRouterSetup">
+      <Column Name="SetupID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SetupName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Users_HNU" Member="Users_HNUs">
+    <Type Name="Users_HNU">
+      <Column Name="UserID" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="MachineID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Machines_HNM" Member="Machines_HNMs">
+    <Type Name="Machines_HNM">
+      <Column Name="MachineID" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MachineName" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="MacAddress" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IPaddress" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Static" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="MachineTypeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NetworkDeviceID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="LocationID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HostName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NetworkDevices_HNND" Member="NetworkDevices_HNNDs">
+    <Type Name="NetworkDevices_HNND">
+      <Column Name="NetworkDeviceID" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NetworkDeviceName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="MacAddress" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="IPaddress" Type="System.String" DbType="varchar(50)" CanBeNull="true" />
+      <Column Name="NetworkDeviceTypeID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NetworkPorts" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LocationID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RouterSetups_HNRS" Member="RouterSetups_HNRs">
+    <Type Name="RouterSetups_HNR">
+      <Column Name="SetupID" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SetupName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="IPaddress" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="UserID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="SSID24" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Password24" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="SSID50" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Password50" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="EncryptionType" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Mode" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Comments" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.HNSP_RouterSetup" Method="HNSP_RouterSetup">
+    <Parameter Name="reqType" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="setupID" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="HNSP_RouterSetupResult">
+      <Column Name="SetupID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SetupName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="IPaddress" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="UserID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="SSID24" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Password24" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="SSID50" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Password50" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="EncryptionType" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Mode" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Comments" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.HNSP_ComboBox" Method="HNSP_ComboBox">
+    <Parameter Name="reqType" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="HNSP_ComboBoxResult">
+      <Column Name="cboMember" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="cboDisplay" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.HNSP_IP" Method="HNSP_IP">
+    <ElementType Name="HNSP_IPResult">
+      <Column Name="IPaddress" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DeviceName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="HostName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="MacAddress" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NetworkDevice" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="devType" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.HNSP_IPinfo" Method="HNSP_IPinfo">
+    <Parameter Name="reqType" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="devType" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="ipAddress" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="HNSP_IPinfoResult">
+      <Column Name="IPaddressM" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MachineName" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="HostName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Static" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="MachineType" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NetworkDeviceName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="LocationM" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="IPaddressN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MacAddress" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NetworkPorts" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NetworkDeviceType" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="LocationN" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

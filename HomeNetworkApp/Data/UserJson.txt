@@ -1,0 +1,52 @@
+{
+Users: [
+{
+FirstName: "Gina",
+LastName: "Pimpinella",
+MachineID: null,
+MachineName: null,
+Password: "test567",
+UserID: "Gina"
+},
+{
+FirstName: "Vin",
+LastName: "Pimpinella",
+MachineID: null,
+MachineName: null,
+Password: "test789",
+UserID: "LilVin"
+},
+{
+FirstName: "Test",
+LastName: "One",
+MachineID: null,
+MachineName: null,
+Password: "testing1",
+UserID: "test1"
+},
+{
+FirstName: "Test",
+LastName: "Two",
+MachineID: null,
+MachineName: null,
+Password: "testing2",
+UserID: "test2"
+},
+{
+FirstName: "Test",
+LastName: "Three",
+MachineID: null,
+MachineName: "WIN7ULT64",
+Password: "testing3",
+UserID: "test3"
+},
+{
+FirstName: "Vinny",
+LastName: "Pimpinella",
+MachineID: null,
+MachineName: "LENOVO Y500",
+Password: "test123",
+UserID: "Vinny"
+}
+]
+}
