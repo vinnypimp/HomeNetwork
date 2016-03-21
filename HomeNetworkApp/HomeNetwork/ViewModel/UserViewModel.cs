@@ -19,7 +19,6 @@ namespace HomeNetwork.ViewModel
         private ObservableCollection<User> _users;
         private int _userCount;
         private User _selectedUser;
-        private DataTable _dt;
         private bool _addUserCheck;
         private bool _modifyUserCheck;
 
@@ -168,8 +167,8 @@ namespace HomeNetwork.ViewModel
             ServiceRequest.Get svc = new ServiceRequest.Get();
             //svc.RequestType = "GetUsers";
             //_dt = new DataTable();
-            //DataSet ds = svc.GetRequestFile();
-            svc.GetUsers();
+            svc.GetRequestFile();
+            //svc.GetUsers();
             DataSet ds = svc.DS;
             
             // create new User Collection

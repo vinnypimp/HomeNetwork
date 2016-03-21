@@ -190,18 +190,16 @@ namespace HomeNetwork.Services
     
     #endregion    
 
-    public DataSet GetRequestFile()
+    public void GetRequestFile()
     {
-        DataSet ds = new DataSet();
         string fileName = @"../../Data/UserJson.txt";
         using (StreamReader client = new StreamReader(fileName))
         {
             string json = client.ReadToEnd();
-           
+
             // Create Dataset
-            ds = JsonConvert.DeserializeObject<DataSet>(json);
-            }
-        return ds;
+            _ds = JsonConvert.DeserializeObject<DataSet>(json);
+        }
     }
     
 }

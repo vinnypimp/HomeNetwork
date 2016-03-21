@@ -3,26 +3,25 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:views="clr-namespace:HomeNetwork.View"
         xmlns:viewModels="clr-namespace:HomeNetwork.ViewModel"
-        Title="MainWindow" Height="650" Width="1000">
-
+        Title="Home Network" Height="655" Width="1010">
+   
     <Window.DataContext>
         <viewModels:MainWindowModel></viewModels:MainWindowModel>
     </Window.DataContext>
-    <Window.Resources>
-        <ResourceDictionary Source="Resources/MyResources.xaml" />
-    </Window.Resources>
 
     <Grid>
-        <Canvas HorizontalAlignment="Left" Height="475" Margin="10,100,0,0" VerticalAlignment="Top" Width="972" >
+        
+        <Canvas Height="475" Margin="10,100,0,0" Width="972" >
             <StackPanel Height="85" Canvas.Left="10" Canvas.Top="10" Width="540" >
-                <Border BorderBrush="Black" BorderThickness="1" Height="84" Margin="0,0,-402,0"/>
+                <!--<Border Height="84" Margin="0,0,-402,0" Style="{StaticResource Borders}"/>-->
             </StackPanel>
-            <Canvas Name="cnvView" Height="365" Canvas.Left="10" Canvas.Top="100" Width="952">
+            <Canvas Name="cnvView" Height="365" Canvas.Left="10" Canvas.Top="100" Width="952" >
                 <ContentControl Content="{Binding DisplayViewModel}"></ContentControl>
             </Canvas>
         </Canvas>
-        <StatusBar HorizontalAlignment="Left" Height="39" Margin="10,580,0,0" VerticalAlignment="Top" Width="972"/>
-        <Grid HorizontalAlignment="Left" Height="75" Margin="10,10,0,0" VerticalAlignment="Top" Width="822">
+        
+        <Border Height="75" Margin="10,10,0,0" Width="972" Style="{StaticResource Borders}" />
+        <Grid HorizontalAlignment="Left" Height="75" Margin="10,10,0,0" VerticalAlignment="Top" Width="822" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="11"/>
                 <ColumnDefinition Width="160"/>
@@ -34,13 +33,11 @@
             </Grid.ColumnDefinitions>
 
             <Button Name="btnUsers" Command="{Binding Path=UserButton}" Content="Users" Grid.Column="1" Style="{StaticResource btnMain}"/>
-            <Button Name="btnMachines" Content="Machines" Grid.Column="2" Style="{StaticResource btnMain}"/>
+            <Button Name="btnMachines" Content="Machines" Grid.Column="2" Style="{StaticResource btnMain}" />
             <Button Name="btnNetDevices" Content="Net Devices" Grid.Column="3" Style="{StaticResource btnMain}"/>
             <Button Name="btnSetups" Content="Setups" Grid.Column="4" Style="{StaticResource btnMain}"/>
             <Button Name="btnAdmin" Content="Admin" Grid.Column="5" Style="{StaticResource btnMain}"/>
-            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="75" Margin="10,0,-130,0" VerticalAlignment="Top" Width="942" Grid.ColumnSpan="7"/>
-
         </Grid>
-
+        <StatusBar BorderBrush="DarkGray" BorderThickness="1" Height="34" Margin="10,580,0,0" Width="972" HorizontalAlignment="Left" VerticalAlignment="Top" />
     </Grid>
 </Window>
