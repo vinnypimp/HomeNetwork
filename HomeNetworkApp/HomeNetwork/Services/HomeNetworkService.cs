@@ -174,16 +174,34 @@ namespace HomeNetwork.Services
             RequestType = "AddNewUser";
             PostRequest();
         }
+
+        public void UpdateUser()
+        {
+            RequestType = "UpdateUser";
+            PostRequest();
+        }
             
         public void AddNewMachine()
         {
             RequestType = "AddNewMachine";
             PostRequest();
         }
+
+        public void UpdateMachine()
+        {
+            RequestType = "UpdateMachine";
+            PostRequest();
+        }
         
         public void AddNewNetDevice()
         {
             RequestType = "AddNewNetDevice";
+            PostRequest();
+        }
+
+        public void UpdateNetDevice()
+        {
+            RequestType = "UpdateNetDevice";
             PostRequest();
         }
     }

@@ -45,18 +45,18 @@ namespace HomeNetwork.ViewModel
             return true;
         }
 
-        private ICommand _addButton;
-        public ICommand AddButton
+        private ICommand _process;
+        public ICommand Process
         {
             get
             {
-                if (_addButton == null)
+                if (_process == null)
                 {
-                    _addButton = new RelayCommand(
-                        param => this.AddNewUser(),
+                    _process = new RelayCommand(
+                        param => this.ProcessUser(),
                         param => this.CanGet());
                 }
-                return _addButton;
+                return _process;
             }
         }
 
@@ -138,6 +138,8 @@ namespace HomeNetwork.ViewModel
         {
             // Update User Count
             this._userCount = this._users.Count;
+
+            // notified when collection changes
         }
 
         #endregion
@@ -193,20 +195,52 @@ namespace HomeNetwork.ViewModel
             selectUser.MachineID = "1";
         }
 
-        private void AddNewUser()
+        private void ProcessUser()
         {
             User newUser = new User();
             GetUser(newUser);
-            // send to webservice
+            if (_addUserCheck)
+            {
+                AddNewUser(newUser);
+            }
+            else if (_modifyUserCheck)
+            {
+                UpdateUser(newUser);
+            }
+        }
+
+        private void AddNewUser(User newUser)
+        {
             ServiceRequest.Post svc = new ServiceRequest.Post();
-            //svc.RequestType = "addNewUser";
             svc.PostData = newUser;
+
+            // send to webservice
             svc.AddNewUser();
+
             // if rc = 0 then add to collection
             if (svc.Success)
             {
                 Users.Add(newUser);
                 base.OnPropertyChanged("UserList");
+            }
+        }
+
+        private void UpdateUser(User user)
+        {
+            ServiceRequest.Post svc = new ServiceRequest.Post();
+            svc.PostData = user;
+
+            // send to webservice
+            svc.UpdateUser();
+
+            // if rc = 0 then add to collection
+            if (svc.Success)
+            {
+                base.OnPropertyChanged("UserList");
+            }
+            else
+            {
+                this.Initialize();
             }
         }
 

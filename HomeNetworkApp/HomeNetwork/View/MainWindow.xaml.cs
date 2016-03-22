@@ -1,4 +1,4 @@
-﻿namespace HomeNetwork
+﻿namespace HomeNetwork.View
 {
     public partial class MainWindow : System.Windows.Window
     {

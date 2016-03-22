@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using HomeNetwork.ViewModel;
 
-namespace HomeNetwork
+namespace HomeNetwork.Resources
 {
     /// <summary>
     /// Interaction logic for App.xaml
@@ -20,9 +20,9 @@ namespace HomeNetwork
 
             // Initialize Main Window and View Model
             //var mainWindow = new MainWindow();
-            var mvm = new MainWindowModel();
 
-            MainWindow mainWindow = new MainWindow();
+            var mainWindow = new View.MainWindow();
+            var mvm = new MainWindowModel();
             mainWindow.DataContext = mvm;
             mainWindow.Show();
             //mainWindow.DataContext = viewModel;
