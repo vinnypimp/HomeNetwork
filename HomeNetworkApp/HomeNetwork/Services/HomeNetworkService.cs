@@ -208,9 +208,21 @@ namespace HomeNetwork.Services
     
     #endregion    
 
-    public void GetRequestFile()
+    public void GetRequestFile(string fileRequest)
     {
-        string fileName = @"../../Data/UserJson.txt";
+        string fileName = "";
+
+        switch (fileRequest)
+        {
+            case "U":
+                fileName = @"../../Data/UserJson.txt";
+                break;
+
+            case "C":
+                fileName = @"../../Data/CboJson.txt";
+                break;
+        }
+        
         using (StreamReader client = new StreamReader(fileName))
         {
             string json = client.ReadToEnd();

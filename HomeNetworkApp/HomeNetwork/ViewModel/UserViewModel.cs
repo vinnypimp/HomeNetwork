@@ -1,12 +1,11 @@
 using System.Collections.ObjectModel;
-using HomeNetwork.Utilities;
 using HomeNetwork.View;
 using HomeNetwork.Models;
 using System.Windows;
 using System.Windows.Input;
 using HomeNetwork.Services;
-using System.Collections.Generic;
 using System.Data;
+using System.Collections.Generic;
 using HomeNetwork.Helpers;
 
 namespace HomeNetwork.ViewModel
@@ -21,10 +20,12 @@ namespace HomeNetwork.ViewModel
         private User _selectedUser;
         private bool _addUserCheck;
         private bool _modifyUserCheck;
-
+        private string _machineID;
+        private string _machineName;
+        
         #endregion
 
-        #region Constructor
+        #region Constructors
 
         public UserViewModel()
         {
@@ -128,8 +129,34 @@ namespace HomeNetwork.ViewModel
             }
         }
 
+        public string MachineID
+        {
+            get { return _machineID; }
+            set
+            {
+                if (_machineID !=value)
+                {
+                    _machineID = value;
+                    base.OnPropertyChanged("MachineID");
+                }
+            }
+        }
+
+        public string MachineName
+        {
+            get { return _machineName; }
+
+            set
+            {
+                _machineName = value;
+                base.OnPropertyChanged("MachineName");
+            }
+        }
+
         public DataTable dt { get; set; }
 
+        public List<ComboBoxItems> CboItems { get; set; }
+      
         #endregion
 
         #region Event Handlers
@@ -160,6 +187,9 @@ namespace HomeNetwork.ViewModel
 
             // Add User Check
             AddUserCheck = true;
+
+            // Load Machine Name ComboBox
+            FillComboBoxes();
         }
 
         private void GetUserList()
@@ -169,7 +199,7 @@ namespace HomeNetwork.ViewModel
             ServiceRequest.Get svc = new ServiceRequest.Get();
             //svc.RequestType = "GetUsers";
             //_dt = new DataTable();
-            svc.GetRequestFile();
+            svc.GetRequestFile("U");
             //svc.GetUsers();
             DataSet ds = svc.DS;
             
@@ -192,20 +222,20 @@ namespace HomeNetwork.ViewModel
             selectUser.Password = SelectedUser.Password;
             selectUser.FirstName = SelectedUser.FirstName;
             selectUser.LastName = SelectedUser.LastName;
-            selectUser.MachineID = "1";
+            selectUser.MachineID = SelectedUser.MachineID;
         }
 
         private void ProcessUser()
         {
-            User newUser = new User();
-            GetUser(newUser);
+            User selectUser = new User();
+            GetUser(selectUser);
             if (_addUserCheck)
             {
-                AddNewUser(newUser);
+                AddNewUser(selectUser);
             }
             else if (_modifyUserCheck)
             {
-                UpdateUser(newUser);
+                UpdateUser(selectUser);
             }
         }
 
@@ -220,6 +250,7 @@ namespace HomeNetwork.ViewModel
             // if rc = 0 then add to collection
             if (svc.Success)
             {
+                newUser.MachineName = SelectedUser.MachineName;
                 Users.Add(newUser);
                 base.OnPropertyChanged("UserList");
             }
@@ -247,6 +278,16 @@ namespace HomeNetwork.ViewModel
         private void UpdateModifyCheck()
         {
             ModifyUserCheck = true;
+        }
+
+        private void FillComboBoxes()
+        {
+            ServiceRequest.Get svc = new ServiceRequest.Get();
+            svc.GetRequestFile("C");
+            DataTable dt = new DataTable();
+            dt = svc.DS.Tables[0];
+
+            CboItems = dt.ToList<ComboBoxItems>();
         }
 
         #endregion

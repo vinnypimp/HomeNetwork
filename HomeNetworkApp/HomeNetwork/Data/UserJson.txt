@@ -3,39 +3,39 @@ Users: [
 {
 FirstName: "Gina",
 LastName: "Pimpinella",
-MachineID: null,
-MachineName: null,
+MachineID: "N5110",
+MachineName: "GINA-N5110",
 Password: "test567",
 UserID: "Gina"
 },
 {
 FirstName: "Vin",
 LastName: "Pimpinella",
-MachineID: null,
-MachineName: null,
+MachineID: "WIN7ULT641468",
+MachineName: "WIN7ULT64",
 Password: "test789",
 UserID: "LilVin"
 },
 {
 FirstName: "Test",
 LastName: "One",
-MachineID: null,
-MachineName: null,
+MachineID: "WIN7ULT641468",
+MachineName: "WIN7ULT64",
 Password: "testing1",
 UserID: "test1"
 },
 {
 FirstName: "Test",
 LastName: "Two",
-MachineID: null,
-MachineName: null,
+MachineID: "WIN7ULT641468",
+MachineName: "WIN7ULT64",
 Password: "testing2",
 UserID: "test2"
 },
 {
 FirstName: "Test",
 LastName: "Three",
-MachineID: null,
+MachineID: "WIN7ULT641468",
 MachineName: "WIN7ULT64",
 Password: "testing3",
 UserID: "test3"
@@ -43,7 +43,7 @@ UserID: "test3"
 {
 FirstName: "Vinny",
 LastName: "Pimpinella",
-MachineID: null,
+MachineID: "LENOVOY500",
 MachineName: "LENOVO Y500",
 Password: "test123",
 UserID: "Vinny"

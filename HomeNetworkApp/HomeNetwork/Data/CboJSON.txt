@@ -1,0 +1,16 @@
+﻿{
+CBO: [
+{
+CboDisplay: "LENOVO Y500",
+CboMember: "LENOVOY500"
+},
+{
+CboDisplay: "GINA-N5110",
+CboMember: "N5110"
+},
+{
+CboDisplay: "WIN7ULT64",
+CboMember: "WIN7ULT641468"
+}
+]
+}

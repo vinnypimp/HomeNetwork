@@ -1,34 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
-using HomeNetwork.Utilities;
-using HomeNetwork.View;
+﻿using System.Collections.Generic;
 using HomeNetwork.Models;
 using System.Windows;
 using System.Windows.Input;
-using System.Diagnostics;
-using System.ComponentModel;
 
 namespace HomeNetwork.ViewModel
 {
     public class MainWindowModel : ViewModelBase
     {
-        //private UserViewModel _userView;
-        public Control currentView;
-        public MainWindow mainWindow;
-        
+        #region Fields
+
+        private ViewModelBase _displayViewModel;
+        private IList<User> _users;
+
+        #endregion
+
+        #region Constructors
+
         public MainWindowModel()
         {
             this.Initialize();
         }
 
-        private void Initialize()
-        {          
-            
-        }
+        #endregion
+
+        #region Command Properties
 
         private bool CanGet()
         {
@@ -43,21 +38,17 @@ namespace HomeNetwork.ViewModel
                 if (_userButton == null)
                 {
                     _userButton = new RelayCommand(
-                        param => this.GetUsers(), 
+                        param => this.GetUsers(),
                         param => this.CanGet());
                 }
                 return _userButton;
             }
         }
 
-        private IList<User> _users;
-        private void GetUsers()
-        {
-            MessageBox.Show("Triggered a User Button Click");
-            DisplayViewModel = new UserViewModel();
-        }
+        #endregion  
 
-        private ViewModelBase _displayViewModel;
+        #region Data Properties
+
         public ViewModelBase DisplayViewModel
         {
             get
@@ -71,16 +62,28 @@ namespace HomeNetwork.ViewModel
             }
         }
 
-        private IList<User> Users
+        //public Control currentView;
+        //public MainWindow mainWindow;
+
+        #endregion
+
+        #region Event Handlers
+
+        #endregion
+
+        #region Private Methods
+
+        private void Initialize()
         {
-            get
-            {
-                return _users;
-            }
-            set
-            {
-                _users = value;
-            }
+
         }
+
+        private void GetUsers()
+        {
+            MessageBox.Show("Triggered a User Button Click");
+            DisplayViewModel = new UserViewModel();
+        }
+
+        #endregion
     }
 }

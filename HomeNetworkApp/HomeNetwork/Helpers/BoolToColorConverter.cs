@@ -15,12 +15,12 @@ namespace HomeNetwork.Helpers
         {
             if (value == null)
             {
-                return new SolidColorBrush(Colors.Transparent);
+                return new SolidColorBrush(Colors.PowderBlue);
             }
 
             return System.Convert.ToBoolean(value) ?
                 new SolidColorBrush(Colors.Red) :
-                new SolidColorBrush(Colors.Transparent);
+                new SolidColorBrush(Colors.Red);
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

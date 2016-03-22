@@ -21,7 +21,7 @@
                 <!--use this to trigger doubleclick event -->
             </StackPanel>
             <Border Width="408" Height="341" Grid.RowSpan="6" Grid.ColumnSpan="3" Style="{StaticResource PanelBorders}" Canvas.Left="559" Canvas.Top="10" />
-            <Grid Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}" Height="208" Width="384" RenderTransformOrigin="0.508,0.451" Canvas.Left="560" Canvas.Top="12" >
+            <Grid Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}" Height="208" Width="398" RenderTransformOrigin="0.508,0.451" Canvas.Left="560" Canvas.Top="12" >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="133"/>
                     <ColumnDefinition Width="133"/>
@@ -47,8 +47,13 @@
                 <Label Content="Last Name" Grid.Column="1" Grid.Row="3" Style="{StaticResource Labels}" />
                 <TextBox Name="txtLastName" Text="{Binding SelectedUser.LastName, UpdateSourceTrigger=PropertyChanged}" Margin="5" Grid.Column="1" Grid.Row="4" Style="{StaticResource TxtBox}" />
                 <Label Content="Machine Name" Grid.Column="2" Grid.Row="3" Style="{StaticResource Labels}" />
-                <ComboBox Name="cboMachineName" Margin="5"  Grid.Column="2" Grid.Row="4" Style="{StaticResource CboBox}" />
-                <Button Command="{Binding Path=Process}" Name="btnProcess" Margin="0,10,13,8"  Grid.Column="2" Grid.Row="5" Content="Process" HorizontalAlignment="Right" Style="{StaticResource btnMain}" />
+                <ComboBox Name="cboMachineName" Margin="5,5,0,0" Width="117" Grid.Column="2" Grid.Row="4" Style="{StaticResource CboBox}"
+                          ItemsSource="{Binding Path=CboItems}"
+                          DisplayMemberPath="CboDisplay"
+                          SelectedValuePath="CboMember"
+                          Text="{Binding SelectedUser.MachineName}"
+                          SelectedValue="{Binding SelectedUser.MachineID}" />
+                <Button Command="{Binding Path=Process}" Name="btnProcess" Margin="0,10,10,8"  Grid.Column="2" Grid.Row="5" Content="Process" HorizontalAlignment="Right" Style="{StaticResource btnMain}" />
             </Grid>
         </Canvas>
     </Grid>

@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Diagnostics;
+﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Runtime.Serialization;
 using System.Data;
 
 namespace HomeNetwork.Models
@@ -50,7 +43,8 @@ namespace HomeNetwork.Models
                     Password = row["Password"].ToString(),
                     FirstName = row["FirstName"].ToString(),
                     LastName = row["LastName"].ToString(),
-                    MachineID = row["MachineID"].ToString()
+                    MachineID = row["MachineID"].ToString(),
+                    MachineName = row["MachineName"].ToString()
                 });
             }
             return oc;
