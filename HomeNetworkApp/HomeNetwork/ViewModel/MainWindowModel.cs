@@ -18,8 +18,8 @@ namespace HomeNetwork.ViewModel
     {
         //private UserViewModel _userView;
         public Control currentView;
-        public MainWindow mainWindow;       
-
+        public MainWindow mainWindow;
+        
         public MainWindowModel()
         {
             this.Initialize();

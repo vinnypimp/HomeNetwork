@@ -7,20 +7,21 @@
              xmlns:viewModels="clr-namespace:HomeNetwork.ViewModel"
              xmlns:helpers="clr-namespace:HomeNetwork.Helpers"
              mc:Ignorable="d" 
-             d:DesignHeight="362" d:DesignWidth="952">
-       
-    <Grid >
-        <Canvas Height="362" Background="White" Margin="0,0,0,0" >
+             d:DesignHeight="362" Width="962">
+
+    <Grid Margin="-15,0,0,0">
+        <Canvas Height="362" Margin="0,0,0,0" >
             <StackPanel Height="342" Canvas.Top="10" Width="550" >
                 <DataGrid x:Name="gridUsers" ItemsSource="{Binding Users}" BorderBrush="Black" BorderThickness="1" Height="341"
                           SelectedItem="{Binding SelectedUser}"
                           SelectionMode="Single"
                           SelectionUnit="FullRow"
                           IsReadOnly="True"
-                          helpers:RowSingleClickHandler.MethodName="RowSelected" /> <!--use this to trigger doubleclick event -->
+                          helpers:RowSingleClickHandler.MethodName="RowSelected" />
+                <!--use this to trigger doubleclick event -->
             </StackPanel>
-            <Grid Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}"
-                    HorizontalAlignment="Left" Height="208" VerticalAlignment="Top" Width="384" RenderTransformOrigin="0.508,0.451" Margin="560,10,0,0">
+            <Border Width="408" Height="341" Grid.RowSpan="6" Grid.ColumnSpan="3" Style="{StaticResource PanelBorders}" Canvas.Left="559" Canvas.Top="10" />
+            <Grid Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}" Height="208" Width="384" RenderTransformOrigin="0.508,0.451" Canvas.Left="560" Canvas.Top="12" >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="133"/>
                     <ColumnDefinition Width="133"/>
@@ -35,21 +36,19 @@
                     <RowDefinition Height="25*"/>
                 </Grid.RowDefinitions>
 
-                <RadioButton Content="Add User" IsChecked="{Binding AddUserCheck}" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <RadioButton Content="Modify User" IsChecked="{Binding ModifyUserCheck}" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <Label Content="User ID" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                <TextBox Name="txtUserID" Text="{Binding SelectedUser.UserID, UpdateSourceTrigger=PropertyChanged}" Margin="5" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="120"/>
-                <Label Content="Password" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                <TextBox Name="txtPassword" Text="{Binding SelectedUser.Password, UpdateSourceTrigger=PropertyChanged}" Margin="5" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="120"/>
-                <Label Content="First Name" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                <TextBox Name="txtFirstName" Text="{Binding SelectedUser.FirstName, UpdateSourceTrigger=PropertyChanged}" Margin="5" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="120"/>
-                <Label Content="Last Name" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                <TextBox Name="txtLastName" Text="{Binding SelectedUser.LastName, UpdateSourceTrigger=PropertyChanged}" Margin="5" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="120"/>
-                <Label Content="Machine Name" Grid.Column="2" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                <ComboBox Name="cboMachineName" Margin="5"  Grid.Column="2" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100"/>
-                <Button Command="{Binding Path=AddButton}" Name="btnProcess" Margin="0,0,10,0"  Grid.Column="2" Grid.Row="5" Content="Process" HorizontalAlignment="Right" VerticalAlignment="Center" Width="75" Height="20"/>
-                <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="341" Grid.RowSpan="6" VerticalAlignment="Top" Width="384" Grid.ColumnSpan="3" Margin="0,0,0,-133"/>
-            
+                <RadioButton Content="Add User" IsChecked="{Binding AddUserCheck}" Grid.Column="0" Style="{StaticResource RadioBtn}" />
+                <RadioButton Content="Modify User" IsChecked="{Binding ModifyUserCheck}" Grid.Column="1" Style="{StaticResource RadioBtn}"/>
+                <Label Content="User ID" Grid.Column="0" Grid.Row="1" Style="{StaticResource Labels}" />
+                <TextBox Name="txtUserID" Text="{Binding SelectedUser.UserID, UpdateSourceTrigger=PropertyChanged}" Margin="5" Grid.Column="0" Grid.Row="2" Style="{StaticResource TxtBox}" />
+                <Label Content="Password" Grid.Column="1" Grid.Row="1" Style="{StaticResource Labels}" />
+                <TextBox Name="txtPassword" Text="{Binding SelectedUser.Password, UpdateSourceTrigger=PropertyChanged}" Margin="5" Grid.Column="1" Grid.Row="2" Style="{StaticResource TxtBox}" />
+                <Label Content="First Name" Grid.Column="0" Grid.Row="3" Style="{StaticResource Labels}" />
+                <TextBox Name="txtFirstName" Text="{Binding SelectedUser.FirstName, UpdateSourceTrigger=PropertyChanged}" Margin="5" Grid.Column="0" Grid.Row="4" Style="{StaticResource TxtBox}" />
+                <Label Content="Last Name" Grid.Column="1" Grid.Row="3" Style="{StaticResource Labels}" />
+                <TextBox Name="txtLastName" Text="{Binding SelectedUser.LastName, UpdateSourceTrigger=PropertyChanged}" Margin="5" Grid.Column="1" Grid.Row="4" Style="{StaticResource TxtBox}" />
+                <Label Content="Machine Name" Grid.Column="2" Grid.Row="3" Style="{StaticResource Labels}" />
+                <ComboBox Name="cboMachineName" Margin="5"  Grid.Column="2" Grid.Row="4" Style="{StaticResource CboBox}" />
+                <Button Command="{Binding Path=AddButton}" Name="btnProcess" Margin="0,10,13,8"  Grid.Column="2" Grid.Row="5" Content="Process" HorizontalAlignment="Right" Style="{StaticResource btnMain}" />
             </Grid>
         </Canvas>
     </Grid>
