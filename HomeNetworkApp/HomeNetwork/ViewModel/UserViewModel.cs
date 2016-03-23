@@ -283,6 +283,7 @@ namespace HomeNetwork.ViewModel
         private void FillComboBoxes()
         {
             ServiceRequest.Get svc = new ServiceRequest.Get();
+            //svc.GetCboItems("M");
             svc.GetRequestFile("C");
             DataTable dt = new DataTable();
             dt = svc.DS.Tables[0];

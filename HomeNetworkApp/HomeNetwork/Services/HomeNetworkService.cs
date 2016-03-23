@@ -141,26 +141,34 @@ namespace HomeNetwork.Services
     
     #region Get Requests
     
+
         public class Get : ServiceRequest
-    {
+        {        
             
-        public void GetUsers()
-        {
-            RequestType = "GetUsers";
-            GetRequest();
-         }
+            public void GetUsers()
+            {            
+                RequestType = "GetUsers";
+                GetRequest();
+            }
             
-         public void GetMachines()
-         {
-            RequestType = "GetMachines";
-            GetRequest();
-          }
-         public void GetNetDevices()
-         {
-            RequestType = "GetNetDevices";
-            GetRequest();
-          }          
-    }
+            public void GetMachines()
+            {
+                RequestType = "GetMachines";
+                GetRequest();
+            }
+        
+            public void GetNetDevices()
+            {
+                RequestType = "GetNetDevices";
+                GetRequest();
+            }
+
+            public void GetCboItems(string reqType)
+            {
+                RequestType = "GetCboItems/{0}";
+                GetRequest();
+            }
+        }
     
     #endregion
         
