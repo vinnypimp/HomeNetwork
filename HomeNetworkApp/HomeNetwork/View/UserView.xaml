@@ -12,13 +12,18 @@
     <Grid Margin="-15,0,0,0">
         <Canvas Height="362" Margin="0,0,0,0" >
             <StackPanel Height="342" Canvas.Top="10" Width="550" >
-                <DataGrid x:Name="gridUsers" ItemsSource="{Binding Users}" BorderBrush="Black" BorderThickness="1" Height="341"
+                <DataGrid x:Name="gridUsers" Style="{StaticResource DgridDflt}" ItemsSource="{Binding Users}" Height="341"
                           SelectedItem="{Binding SelectedUser}"
-                          SelectionMode="Single"
-                          SelectionUnit="FullRow"
-                          IsReadOnly="True"
-                          helpers:RowSingleClickHandler.MethodName="RowSelected" />
+                          helpers:RowSingleClickHandler.MethodName="RowSelected" >
                 <!--use this to trigger doubleclick event -->
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Width="75" Header="User ID" Binding="{Binding UserID}" />
+                        <DataGridTextColumn Width="100" Header="Password" Binding="{Binding Password}" />
+                        <DataGridTextColumn Width="90" Header="First Name" Binding="{Binding FirstName}" />
+                        <DataGridTextColumn Width="125" Header="Last Name" Binding="{Binding LastName}" />
+                        <DataGridTextColumn Width="150*" Header="Machine Name" Binding="{Binding MachineName}" />
+                    </DataGrid.Columns>
+                </DataGrid>
             </StackPanel>
             <Border Width="408" Height="341" Grid.RowSpan="6" Grid.ColumnSpan="3" Style="{StaticResource PanelBorders}" Canvas.Left="559" Canvas.Top="10" />
             <Grid Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}" Height="208" Width="398" RenderTransformOrigin="0.508,0.451" Canvas.Left="560" Canvas.Top="12" >

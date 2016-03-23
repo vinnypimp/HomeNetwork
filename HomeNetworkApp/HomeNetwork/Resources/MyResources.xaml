@@ -13,6 +13,7 @@
     <SolidColorBrush x:Key="IsMouseOverBackground" Color="AliceBlue" />
     <SolidColorBrush x:Key="WindowBrush" Color="#F0F0F2" />
     <SolidColorBrush x:Key="BackgroundDflt" Color="#ADD8E6" />
+    <SolidColorBrush x:Key="DgridBackground" Color="#ADD8E6" Opacity=".25" />
     <SolidColorBrush x:Key="IsPressedBrush" Color="Gainsboro" />
     <SolidColorBrush x:Key="ButtonBrush" Color="PowderBlue" />
     <SolidColorBrush x:Key="PanelGray" Color="#E3E3E3" />
@@ -22,6 +23,10 @@
         <GradientStop Color="#FFDDDDDD" Offset="1"/>
     </LinearGradientBrush>
    
+    <Style TargetType="{x:Type Window}">
+        <Setter Property="FontFamily" Value="Segoe UI" />
+    </Style>
+    
     <Style x:Key="dfltBackground" TargetType="{x:Type Window}" >
         <Setter Property="Background" Value="{StaticResource WindowBrush}" />
     </Style>
@@ -110,6 +115,53 @@
         <Setter Property="Width" Value="120" />
         <Setter Property="Height" Value="23" />
         <Setter Property="Margin" Value="5" />
+    </Style>
+
+    <Style x:Key="CenterAlignContentStyle" TargetType="{x:Type DataGridCell}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type DataGridCell}">
+                    <Grid Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center"
+                                      HorizontalAlignment="Center" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="LeftAlignContentStyle" TargetType="{x:Type DataGridCell}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type DataGridCell}">
+                    <Grid Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center"
+                                      HorizontalAlignment="Left" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style x:Key="HeaderCells" TargetType="{x:Type DataGridColumnHeader}">
+        <Setter Property="Background" Value="{StaticResource DgridBackground}" />
+        <Setter Property="BorderBrush" Value="Black" />
+        <Setter Property="BorderThickness" Value=".5" />
+        <Setter Property="Height" Value="23" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <!--<Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Center" />-->
+    </Style>
+    
+    <Style x:Key="DgridDflt" TargetType="{x:Type DataGrid}" >
+        <Setter Property="ColumnHeaderStyle" Value="{DynamicResource HeaderCells}" />
+        <Setter Property="AutoGenerateColumns" Value="False" />
+        <Setter Property="RowHeaderWidth" Value="0" />
+        <Setter Property="BorderBrush" Value="Black" />
+        <Setter Property="BorderThickness" Value=".5" />
+        <Setter Property="SelectionMode" Value="Single" />
+        <Setter Property="SelectionUnit" Value="Cell" />
+        <Setter Property="IsReadOnly" Value="True" />
     </Style>
 
 </ResourceDictionary>
