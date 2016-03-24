@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace Authentication
+namespace Authentication.Helpers
 {
     public class DelegateCommand : ICommand
     {

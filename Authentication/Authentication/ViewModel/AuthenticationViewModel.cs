@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Threading;
 using System.Windows.Controls;
 using System.Security;
+using Authentication.Helpers;
 
 namespace Authentication
 {

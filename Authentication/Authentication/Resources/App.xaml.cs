@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows;
 
-namespace Authentication
+namespace Authentication.Resources
 {
     /// <summary>
     /// Interaction logic for App.xaml

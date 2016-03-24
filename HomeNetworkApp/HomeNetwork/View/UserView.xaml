@@ -25,6 +25,7 @@
                     </DataGrid.Columns>
                 </DataGrid>
             </StackPanel>
+            
             <Border Width="408" Height="341" Grid.RowSpan="6" Grid.ColumnSpan="3" Style="{StaticResource PanelBorders}" Canvas.Left="559" Canvas.Top="10" />
             <Grid Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}" Height="208" Width="398" RenderTransformOrigin="0.508,0.451" Canvas.Left="560" Canvas.Top="12" >
                 <Grid.ColumnDefinitions>

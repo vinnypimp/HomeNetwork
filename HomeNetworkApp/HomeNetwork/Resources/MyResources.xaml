@@ -42,7 +42,8 @@
         <Setter Property="Background" Value="{StaticResource BackgroundDflt}" />
         <Setter Property="Opacity" Value="0.25" />
     </Style>
-    
+
+    <!-- BORDER STYLES BEGIN -->
     <Style x:Key="Borders" TargetType="Border" >
         <Setter Property="BorderBrush" Value="Black" />
         <Setter Property="BorderThickness" Value="1" />
@@ -56,7 +57,9 @@
         <Setter Property="Background" Value="{StaticResource PanelGray}" />
         <Setter Property="Opacity" Value="1" />
     </Style>
+    <!-- BORDER STYLES END -->
 
+    <!-- BUTTON STYLES BEGIN -->
     <Style x:Key="btnMain" TargetType="Button">
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
@@ -85,12 +88,42 @@
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="Border.CornerRadius" Value="5,5,5,5" />
     </Style>
-    
+
+    <Style x:Key="HyperlinkLikeButton" TargetType="Button">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <ContentPresenter />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.HotTrackBrushKey}}" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <ControlTemplate.Resources>
+                                <Style TargetType="{x:Type TextBlock}">
+                                    <Setter Property="TextDecorations" Value="Underline" />
+                                </Style>
+                            </ControlTemplate.Resources>
+                            <ContentPresenter />
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
     <Style x:Key="RadioBtn" TargetType="RadioButton">
         <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="FontWeight" Value="Bold" />
     </Style>
+    <!-- BUTTON STYLES END -->
 
     <Style x:Key="CboBox" TargetType="ComboBox">
         <Setter Property="HorizontalAlignment" Value="Left" />
@@ -143,6 +176,8 @@
         </Setter>
     </Style>
     
+    
+    <!-- DATA GRID STYLES BEGIN -->
     <Style x:Key="HeaderCells" TargetType="{x:Type DataGridColumnHeader}">
         <Setter Property="Background" Value="{StaticResource DgridBackground}" />
         <Setter Property="BorderBrush" Value="Black" />
@@ -163,5 +198,11 @@
         <Setter Property="SelectionUnit" Value="Cell" />
         <Setter Property="IsReadOnly" Value="True" />
     </Style>
+    
+    <Style TargetType="DataGridCell" >
+        <Setter Property="TextBlock.TextAlignment" Value="Center" />
+    </Style>
+    <!-- DATA GRID STYLES END -->
+
 
 </ResourceDictionary>
