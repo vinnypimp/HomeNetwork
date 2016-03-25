@@ -5,7 +5,7 @@
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="booleanToVisibilityConverter"/>
     </Window.Resources>
-    <Grid Background="{StaticResource BackgroundBrush}" >
+    <Grid Background="{StaticResource BackgroundDflt}" Opacity=".75" >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" MinWidth="64"/>
             <ColumnDefinition Width="159*"/>

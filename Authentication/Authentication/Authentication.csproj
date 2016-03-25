@@ -57,6 +57,7 @@
       <DependentUpon>AdminWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="AnonymousIdentity.cs" />
+    <Compile Include="Helpers\ConvertBoolToVisible.cs" />
     <Compile Include="Resources\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>

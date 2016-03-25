@@ -17,6 +17,7 @@ namespace Authentication
         private readonly DelegateCommand _showViewCommand;
         private string _username;
         private string _status;
+        private bool _txtAuthVisible;
 
         public AuthenticationViewModel(IAuthenticationService authenticationService)
         {
@@ -33,6 +34,12 @@ namespace Authentication
             set { _username = value; NotifyPropertyChanged("Username"); }
         }
 
+        public bool TxtAuthVisible
+        {
+            get { return _txtAuthVisible; }
+            set { _txtAuthVisible = value; NotifyPropertyChanged("TxtAuthVisible"); }
+        }
+
         public string AuthenticatedUser
         {
             get
@@ -42,7 +49,6 @@ namespace Authentication
                         Thread.CurrentPrincipal.Identity.Name,
                         Thread.CurrentPrincipal.IsInRole("Administrators") ? "You are an Administrator!"
                             : "You are NOT a member of the Administrators Group.");
-                
                 return "Not Authenticated!";
             }
         }
@@ -86,6 +92,11 @@ namespace Authentication
                 Username = string.Empty; //reset
                 passwordBox.Password = string.Empty; //reset
                 Status = string.Empty;
+                TxtAuthVisible = true;
+                NotifyPropertyChanged("TxtAuthVisible");
+
+                // Show View
+                //ShowView(null);
             }
             catch (UnauthorizedAccessException)
             {
@@ -102,7 +113,7 @@ namespace Authentication
             return !IsAuthenticated;
         }
 
-        private void Logout(object parameter)
+        public void Logout(object parameter)
         {
             CustomPrincipal customPrincipal = Thread.CurrentPrincipal as CustomPrincipal;
             if (customPrincipal != null)

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using HomeNetwork.ViewModel;
+using Authentication;
 
 namespace HomeNetwork.Resources
 {
@@ -20,6 +21,11 @@ namespace HomeNetwork.Resources
 
             // Initialize Main Window and View Model
             //var mainWindow = new MainWindow();
+
+            AuthenticationViewModel viewModel = new AuthenticationViewModel(new AuthenticationService());
+            IView loginWindow = new LoginWindow(viewModel);
+            loginWindow.Show();
+
 
             var mainWindow = new View.MainWindow();
             var mvm = new MainWindowModel();
