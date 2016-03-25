@@ -4,6 +4,8 @@ using System.Threading;
 using System.Windows.Controls;
 using System.Security;
 using Authentication.Helpers;
+using HomeNetwork.View;
+using HomeNetwork.ViewModel;
 
 namespace Authentication
 {
@@ -24,7 +26,7 @@ namespace Authentication
             _authenticationService = authenticationService;
             _loginCommand = new DelegateCommand(Login, CanLogin);
             _logoutCommand = new DelegateCommand(Logout, CanLogout);
-            _showViewCommand = new DelegateCommand(ShowView, null);
+            //_showViewCommand = new DelegateCommand(ShowView, null);
         }
 
         #region Properties
@@ -92,11 +94,9 @@ namespace Authentication
                 Username = string.Empty; //reset
                 passwordBox.Password = string.Empty; //reset
                 Status = string.Empty;
-                TxtAuthVisible = true;
-                NotifyPropertyChanged("TxtAuthVisible");
 
-                // Show View
-                //ShowView(null);
+                // Start Application
+                StartUp.StartApp(this);
             }
             catch (UnauthorizedAccessException)
             {
@@ -135,25 +135,6 @@ namespace Authentication
         public bool IsAuthenticated
         {
             get { return Thread.CurrentPrincipal.Identity.IsAuthenticated; }
-        }
-
-        private void ShowView(object parameter)
-        {
-            try
-            {
-                Status = string.Empty;
-                IView view;
-                if (parameter == null)
-                    view = new SecretWindow();
-                else
-                    view = new AdminWindow();
-
-                view.Show();
-            }
-            catch (SecurityException)
-            {
-                Status = "You are NOT Authorized!";
-            }
         }
 
         #region INotifyPropertyChanged Members

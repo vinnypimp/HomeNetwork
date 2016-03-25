@@ -17,22 +17,14 @@ namespace HomeNetwork.Resources
     {
         protected override void OnStartup(StartupEventArgs e)
         {
+            //Create a Custom Principal with Anonymous Identity at Startup
+            CustomPrincipal customPrincipal = new CustomPrincipal();
+            AppDomain.CurrentDomain.SetThreadPrincipal(customPrincipal);
+
             base.OnStartup(e);
 
-            // Initialize Main Window and View Model
-            //var mainWindow = new MainWindow();
+            Authentication.StartUp.Login();
 
-            AuthenticationViewModel viewModel = new AuthenticationViewModel(new AuthenticationService());
-            IView loginWindow = new LoginWindow(viewModel);
-            loginWindow.Show();
-
-
-            var mainWindow = new View.MainWindow();
-            var mvm = new MainWindowModel();
-            mainWindow.DataContext = mvm;
-            mainWindow.Show();
-            //mainWindow.DataContext = viewModel;
-            //mainWindow.Show();
         }
     }
 }

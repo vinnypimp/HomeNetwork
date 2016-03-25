@@ -78,8 +78,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Authentication\StartUp.cs" />
     <Compile Include="Helpers\BoolToColorConverter.cs" />
+    <Compile Include="Authentication\Helpers\ConvertBoolToVisible.cs" />
     <Compile Include="Helpers\ConvertToList.cs" />
+    <Compile Include="Authentication\Helpers\DelegateCommand.cs" />
     <Compile Include="Helpers\RowDoubleClickHandler.cs" />
     <Compile Include="Models\ComboBoxItems.cs" />
     <Compile Include="Models\User.cs" />
@@ -89,11 +92,12 @@
     <Compile Include="Utilities\ViewModelBase.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Authentication\AuthenticationViewModel.cs" />
     <Compile Include="ViewModel\MainWindowModel.cs" />
     <None Include="ViewModel\NetworkDevicesViewModel.cs" />
     <Compile Include="ViewModel\UserViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
-    <Compile Include="View\LoginWindow.xaml.cs">
+    <Compile Include="Authentication\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\UserView.xaml.cs">
@@ -103,7 +107,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\LoginWindow.xaml">
+    <Page Include="Authentication\LoginWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -177,8 +181,8 @@
     <Resource Include="Data\CboJSON.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Authentication\Authentication\Authentication.csproj">
-      <Project>{e11c82cc-597b-41ca-87c1-2935f4ab031a}</Project>
+    <ProjectReference Include="..\..\Authentication\Authentication\Authentication\Authentication.csproj">
+      <Project>{fd634685-2190-4963-865a-6a7539d827cb}</Project>
       <Name>Authentication</Name>
     </ProjectReference>
   </ItemGroup>
