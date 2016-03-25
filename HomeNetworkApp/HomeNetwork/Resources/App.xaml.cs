@@ -23,7 +23,13 @@ namespace HomeNetwork.Resources
 
             base.OnStartup(e);
 
-            Authentication.StartUp.Login();
+            var mainWindow = new View.MainWindow();
+            var mvm = new MainWindowModel();
+            mainWindow.DataContext = mvm;
+            mvm.DisplayViewModel = new AuthenticationViewModel(new AuthenticationService());
+            mainWindow.Show();
+
+            //Authentication.StartUp.Login();
 
         }
     }

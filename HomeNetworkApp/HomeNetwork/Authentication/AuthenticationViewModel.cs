@@ -4,14 +4,14 @@ using System.Threading;
 using System.Windows.Controls;
 using System.Security;
 using Authentication.Helpers;
-using HomeNetwork.View;
 using HomeNetwork.ViewModel;
+using System.Windows;
 
 namespace Authentication
 {
-    public interface IViewModel { }
+    //public interface IViewModel { }
 
-    public class AuthenticationViewModel : IViewModel, INotifyPropertyChanged
+    public class AuthenticationViewModel : ViewModelBase, INotifyPropertyChanged
     {
         private readonly IAuthenticationService _authenticationService;
         private readonly DelegateCommand _loginCommand;
@@ -20,6 +20,7 @@ namespace Authentication
         private string _username;
         private string _status;
         private bool _txtAuthVisible;
+        private string _loginHeader;
 
         public AuthenticationViewModel(IAuthenticationService authenticationService)
         {
@@ -27,6 +28,7 @@ namespace Authentication
             _loginCommand = new DelegateCommand(Login, CanLogin);
             _logoutCommand = new DelegateCommand(Logout, CanLogout);
             //_showViewCommand = new DelegateCommand(ShowView, null);
+            this.Initialize();
         }
 
         #region Properties
@@ -42,22 +44,29 @@ namespace Authentication
             set { _txtAuthVisible = value; NotifyPropertyChanged("TxtAuthVisible"); }
         }
 
-        public string AuthenticatedUser
-        {
-            get
-            {
-                if (IsAuthenticated)
-                    return string.Format("Signed in as {0}. {1}",
-                        Thread.CurrentPrincipal.Identity.Name,
-                        Thread.CurrentPrincipal.IsInRole("Administrators") ? "You are an Administrator!"
-                            : "You are NOT a member of the Administrators Group.");
-                return "Not Authenticated!";
-            }
-        }
+        public string LoginHeader {get; set;}
+            
+        //public string AuthenticatedUser
+        //{
+        //    get
+        //    {
+        //        if (IsAuthenticated)
+        //            return string.Format("Signed in as {0}. {1}",
+        //                Thread.CurrentPrincipal.Identity.Name,
+        //                Thread.CurrentPrincipal.IsInRole("Administrators") ? "You are an Administrator!"
+        //                    : "You are NOT a member of the Administrators Group.");
+        //        return "Not Authenticated!";
+        //    }
+        //}
 
         public string Status
         {
-            get { return _status; }
+            get
+            {
+                if (!IsAuthenticated)
+                { return "Not Authenticated!"; }
+                return _status;
+            }
             set { _status = value; NotifyPropertyChanged("Status"); }
         }
         #endregion
@@ -66,6 +75,21 @@ namespace Authentication
         public DelegateCommand LoginCommand { get { return _loginCommand; } }
         public DelegateCommand LogoutCommand { get { return _logoutCommand; } }
         #endregion
+
+        #region Private Methods
+
+        private void Initialize()
+        {
+            // Initialize Login View
+            Login login = new Login();
+            login.DataContext = this;
+            login.Margin = new Thickness(0, 0, 0, 0);
+            login.HorizontalAlignment = HorizontalAlignment.Center;
+            login.VerticalAlignment = VerticalAlignment.Center;
+
+            _loginHeader = "Home Network Login:";
+
+        }
 
         private void Login(object parameter)
         {
@@ -88,7 +112,7 @@ namespace Authentication
                 customPrincipal.Identity = new CustomIdentity(user.Username, user.Email, user.Roles);
 
                 // Update UI
-                NotifyPropertyChanged("AuthenticatedUser");
+                NotifyPropertyChanged("Status");
                 NotifyPropertyChanged("IsAuthenticated");
                 _loginCommand.RaiseCanExecuteChanged();
                 _logoutCommand.RaiseCanExecuteChanged();
@@ -113,6 +137,8 @@ namespace Authentication
         {
             return !IsAuthenticated;
         }
+
+        #endregion
 
         public void Logout(object parameter)
         {

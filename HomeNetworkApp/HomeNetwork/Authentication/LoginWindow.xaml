@@ -18,7 +18,7 @@
             <RowDefinition Height="35"/>
             <RowDefinition Height="25*" />
         </Grid.RowDefinitions>
-        <TextBlock Name="txtAuthMsg" Text="{Binding AuthenticatedUser}" Grid.Row="0"
+        <TextBlock Name="txtAuthMsg" Text="{Binding Status}" Grid.Row="0"
                FontSize="14" HorizontalAlignment="Right" TextWrapping="Wrap" FontWeight="Bold"
                Margin="0,4,10,0" TextAlignment="Center"
                Visibility="{Binding TxtAuthVisible, Converter={StaticResource booleanToVisibilityConverter}}"

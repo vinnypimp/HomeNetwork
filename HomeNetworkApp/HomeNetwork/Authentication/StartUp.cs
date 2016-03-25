@@ -15,9 +15,9 @@ namespace Authentication
         public static void Login()
         {
             //Show the Login View
-            AuthenticationViewModel viewModel = new AuthenticationViewModel(new AuthenticationService());
-            IView loginWindow = new LoginWindow(viewModel);
-            loginWindow.Show();
+            
+            //IView loginWindow = new LoginWindow(viewModel);
+            //loginWindow.Show();
         }
         
         public static void StartApp(AuthenticationViewModel vm)

@@ -4,6 +4,7 @@ using System.Windows;
 using System.Windows.Input;
 using System.ComponentModel;
 using Authentication.Helpers;
+using Authentication;
 
 namespace HomeNetwork.ViewModel
 {
@@ -12,7 +13,6 @@ namespace HomeNetwork.ViewModel
         #region Fields
 
         private ViewModelBase _displayViewModel;
-        private IList<User> _users;
 
         #endregion
 
@@ -78,7 +78,8 @@ namespace HomeNetwork.ViewModel
 
         private void Initialize()
         {
-
+            //DisplayViewModel = new AuthenticationViewModel(new AuthenticationService());
+            //Authentication.StartUp.Login();
         }
 
         private void GetUsers()
