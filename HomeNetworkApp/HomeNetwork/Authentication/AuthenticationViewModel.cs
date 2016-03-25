@@ -16,7 +16,7 @@ namespace Authentication
         private readonly IAuthenticationService _authenticationService;
         private readonly DelegateCommand _loginCommand;
         private readonly DelegateCommand _logoutCommand;
-        private readonly DelegateCommand _showViewCommand;
+
         private string _username;
         private string _status;
         private bool _txtAuthVisible;
@@ -65,11 +65,12 @@ namespace Authentication
         #region Commands
         public DelegateCommand LoginCommand { get { return _loginCommand; } }
         public DelegateCommand LogoutCommand { get { return _logoutCommand; } }
-        public DelegateCommand ShowViewCommand { get { return _showViewCommand; } }
         #endregion
 
         private void Login(object parameter)
         {
+            TxtAuthVisible = true;
+
             PasswordBox passwordBox = parameter as PasswordBox;
             string clearTextPassword = passwordBox.Password;
 

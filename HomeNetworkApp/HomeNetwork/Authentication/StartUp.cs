@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using HomeNetwork.Resources;
 using HomeNetwork.View;
 using HomeNetwork.ViewModel;
 
@@ -27,8 +29,22 @@ namespace Authentication
                 var mvm = new MainWindowModel();
                 mainWindow.DataContext = mvm;
                 mainWindow.Show();
+
+                App.Current.MainWindow.Close();
+                App.Current.MainWindow = mainWindow;
             }
         }
+    }
 
+    public static class ShutDown
+    {
+        public static void Logout()
+        {
+            CustomPrincipal customPrincipal = Thread.CurrentPrincipal as CustomPrincipal;
+            if (customPrincipal != null)
+            {
+                customPrincipal.Identity = new AnonymousIdentity();
+            }
+        }
     }
 }

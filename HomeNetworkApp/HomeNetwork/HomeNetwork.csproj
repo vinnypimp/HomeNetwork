@@ -80,7 +80,6 @@
     </ApplicationDefinition>
     <Compile Include="Authentication\StartUp.cs" />
     <Compile Include="Helpers\BoolToColorConverter.cs" />
-    <Compile Include="Authentication\Helpers\ConvertBoolToVisible.cs" />
     <Compile Include="Helpers\ConvertToList.cs" />
     <Compile Include="Authentication\Helpers\DelegateCommand.cs" />
     <Compile Include="Helpers\RowDoubleClickHandler.cs" />
@@ -181,7 +180,7 @@
     <Resource Include="Data\CboJSON.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Authentication\Authentication\Authentication\Authentication.csproj">
+    <ProjectReference Include="..\..\Authentication\AuthenticationLibrary\Authentication.csproj">
       <Project>{fd634685-2190-4963-865a-6a7539d827cb}</Project>
       <Name>Authentication</Name>
     </ProjectReference>

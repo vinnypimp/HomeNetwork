@@ -2,6 +2,8 @@
 using HomeNetwork.Models;
 using System.Windows;
 using System.Windows.Input;
+using System.ComponentModel;
+using Authentication.Helpers;
 
 namespace HomeNetwork.ViewModel
 {
@@ -19,6 +21,7 @@ namespace HomeNetwork.ViewModel
         public MainWindowModel()
         {
             this.Initialize();
+            //Application.Current.MainWindow.Closing += new CancelEventHandler(MainWindow_Closing);
         }
 
         #endregion
@@ -83,6 +86,11 @@ namespace HomeNetwork.ViewModel
             MessageBox.Show("Triggered a User Button Click");
             DisplayViewModel = new UserViewModel();
         }
+
+        //private void MainWindow_Closing(object sender, CancelEventArgs e)
+        //{
+        //    Authentication.ShutDown.Logout();
+        //}
 
         #endregion
     }

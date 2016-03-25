@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeNetwork", "HomeNetworkA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeNetworkService", "HomeNetworkService\HomeNetworkService\HomeNetworkService.csproj", "{64055BEA-1E8E-46D7-A1A0-F8EC03AF4545}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Authentication", "Authentication\Authentication\Authentication\Authentication.csproj", "{FD634685-2190-4963-865A-6A7539D827CB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Authentication", "Authentication\AuthenticationLibrary\Authentication.csproj", "{FD634685-2190-4963-865A-6A7539D827CB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
