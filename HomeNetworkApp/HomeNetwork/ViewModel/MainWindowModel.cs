@@ -12,7 +12,8 @@ namespace HomeNetwork.ViewModel
         #region Fields
 
         private ViewModelBase _displayViewModel;
-        private IList<User> _users;
+        private HorizontalAlignment _hzAlign;
+        private VerticalAlignment _vtAlign;
 
         #endregion
 
@@ -65,6 +66,32 @@ namespace HomeNetwork.ViewModel
             }
         }
 
+        public HorizontalAlignment HzAlign
+        {
+            get
+            {
+                return _hzAlign;
+            }
+            set
+            {
+                _hzAlign = value;
+                OnPropertyChanged("HzAlign");
+            }
+        }
+
+        public VerticalAlignment VtAlign
+        {
+            get
+            {
+                return _vtAlign;
+            }
+            set
+            {
+                _vtAlign = value;
+                OnPropertyChanged("VtAlign");
+            }
+        }
+
         //public Control currentView;
         //public MainWindow mainWindow;
 
@@ -84,6 +111,8 @@ namespace HomeNetwork.ViewModel
         private void GetUsers()
         {
             MessageBox.Show("Triggered a User Button Click");
+            _hzAlign = HorizontalAlignment.Left;
+            _vtAlign = VerticalAlignment.Top;
             DisplayViewModel = new UserViewModel();
         }
 

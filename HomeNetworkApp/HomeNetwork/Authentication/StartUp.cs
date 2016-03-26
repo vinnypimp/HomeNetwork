@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,13 +15,17 @@ namespace Authentication
     {
         public static void Login()
         {
-            //Show the Login View
-            AuthenticationViewModel viewModel = new AuthenticationViewModel(new AuthenticationService());
-            IView loginWindow = new LoginWindow(viewModel);
-            loginWindow.Show();
+            // Load Main Window with Login View
+            var mainWindow = new MainWindow();
+            var mvm = new MainWindowModel();
+            mainWindow.DataContext = mvm;
+            mvm.DisplayViewModel = new LoginViewModel(new AuthenticationService());
+            mvm.HzAlign = HorizontalAlignment.Center;
+            mvm.VtAlign = VerticalAlignment.Top;
+            mainWindow.Show();
         }
         
-        public static void StartApp(AuthenticationViewModel vm)
+        public static void StartApp(LoginViewModel vm)
         {
             if (vm.IsAuthenticated)
             {

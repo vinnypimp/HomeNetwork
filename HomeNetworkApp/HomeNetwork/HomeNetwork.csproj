@@ -78,6 +78,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Authentication\LoginView.xaml.cs">
+      <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Authentication\LoginViewModel.cs" />
     <Compile Include="Authentication\StartUp.cs" />
     <Compile Include="Helpers\BoolToColorConverter.cs" />
     <Compile Include="Helpers\ConvertToList.cs" />
@@ -91,24 +95,20 @@
     <Compile Include="Utilities\ViewModelBase.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Authentication\AuthenticationViewModel.cs" />
     <Compile Include="ViewModel\MainWindowModel.cs" />
     <None Include="ViewModel\NetworkDevicesViewModel.cs" />
     <Compile Include="ViewModel\UserViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
-    <Compile Include="Authentication\LoginWindow.xaml.cs">
-      <DependentUpon>LoginWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\UserView.xaml.cs">
       <DependentUpon>UserView.xaml</DependentUpon>
     </Compile>
-    <Page Include="Resources\MyResources.xaml">
+    <Page Include="Authentication\LoginView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Authentication\LoginWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="Resources\MyResources.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

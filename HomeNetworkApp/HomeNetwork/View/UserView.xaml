@@ -7,9 +7,9 @@
              xmlns:viewModels="clr-namespace:HomeNetwork.ViewModel"
              xmlns:helpers="clr-namespace:HomeNetwork.Helpers"
              mc:Ignorable="d" 
-             d:DesignHeight="362" Width="962">
+             d:DesignHeight="362" Width="960">
 
-    <Grid Margin="-15,0,0,0">
+    <Grid >
         <Canvas Height="362" Margin="0,0,0,0" >
             <StackPanel Height="342" Canvas.Top="10" Width="550" >
                 <DataGrid x:Name="gridUsers" Style="{StaticResource DgridDflt}" ItemsSource="{Binding Users}" Height="341"
@@ -26,7 +26,7 @@
                 </DataGrid>
             </StackPanel>
             
-            <Border Width="408" Height="341" Grid.RowSpan="6" Grid.ColumnSpan="3" Style="{StaticResource PanelBorders}" Canvas.Left="559" Canvas.Top="10" />
+            <Border Width="401" Height="341" Grid.RowSpan="6" Grid.ColumnSpan="3" Style="{StaticResource PanelBorders}" Canvas.Left="559" Canvas.Top="10" />
             <Grid Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}" Height="208" Width="398" RenderTransformOrigin="0.508,0.451" Canvas.Left="560" Canvas.Top="12" >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="133"/>
