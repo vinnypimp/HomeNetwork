@@ -9,7 +9,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HomeNetworkService.HomeNetwork
+namespace HomeNetworkService.Data
 {
 	using System.Data.Linq;
 	using System.Data.Linq.Mapping;

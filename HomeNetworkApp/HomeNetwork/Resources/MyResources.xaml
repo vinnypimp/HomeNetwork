@@ -170,7 +170,7 @@
         <Setter Property="BorderBrush" Value="Black" />
         <Setter Property="BorderThickness" Value=".5" />
         <Setter Property="SelectionMode" Value="Single" />
-        <Setter Property="SelectionUnit" Value="Cell" />
+        <Setter Property="SelectionUnit" Value="FullRow" />
         <Setter Property="IsReadOnly" Value="True" />
     </Style>
     

@@ -4,8 +4,28 @@ using System.Linq;
 using System.Web;
 using System.Runtime.Serialization;
 
-namespace HomeNetworkService.HomeNetwork
+namespace HomeNetworkService.Models
 {
+    [DataContract]
+    [Serializable]
+    public class IPtable
+    {
+        [DataMember]
+        public string IPaddress { get; set; }
+
+        [DataMember]
+        public string DeviceName { get; set; }
+
+        [DataMember]
+        public string HostName { get; set; }
+
+        [DataMember]
+        public string MacAddress { get; set; }
+
+        [DataMember]
+        public string NetworkDevice { get; set; }
+     }
+
     [DataContract]
     [Serializable]
     public class IPtableInfo
