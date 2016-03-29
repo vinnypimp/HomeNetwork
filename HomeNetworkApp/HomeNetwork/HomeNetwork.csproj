@@ -83,6 +83,9 @@
     </Compile>
     <Compile Include="Authentication\LoginViewModel.cs" />
     <Compile Include="Authentication\StartUp.cs" />
+    <Compile Include="Authentication\UserRegistration.xaml.cs">
+      <DependentUpon>UserRegistration.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Helpers\BoolToColorConverter.cs" />
     <Compile Include="Helpers\ConvertToList.cs" />
     <Compile Include="Authentication\Helpers\DelegateCommand.cs" />
@@ -102,7 +105,15 @@
     <Compile Include="View\UserView.xaml.cs">
       <DependentUpon>UserView.xaml</DependentUpon>
     </Compile>
+    <Page Include="Authentication\AuthDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Authentication\LoginView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Authentication\UserRegistration.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
