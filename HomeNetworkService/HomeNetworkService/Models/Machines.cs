@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Runtime.Serialization;
 
-namespace HomeNetworkService.HomeNetwork
+namespace HomeNetworkService.Models
 {
     [DataContract]
     [Serializable]

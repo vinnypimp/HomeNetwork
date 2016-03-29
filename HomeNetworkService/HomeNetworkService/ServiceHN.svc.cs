@@ -7,7 +7,8 @@ using System.ServiceModel.Web;
 using System.Text;
 using System.IO;
 using System.Web.Script.Serialization;
-using HomeNetworkService.HomeNetwork;
+using HomeNetworkService.Models;
+using HomeNetworkService.Data;
 
 namespace HomeNetworkService
 {

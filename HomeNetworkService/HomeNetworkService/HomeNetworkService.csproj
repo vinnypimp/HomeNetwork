@@ -65,18 +65,20 @@
     <Content Include="ServiceHN.svc" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HomeNetwork\ComboBoxItems.cs" />
-    <Compile Include="HomeNetwork\HomeNetwork.designer.cs">
+    <Compile Include="Data\HomeNetwork.cs">
+      <DependentUpon>HomeNetwork.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ComboBoxItems.cs" />
+    <Compile Include="Data\HomeNetwork.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>HomeNetwork.dbml</DependentUpon>
     </Compile>
-    <Compile Include="HomeNetwork\IPtable.cs" />
-    <Compile Include="HomeNetwork\IPtableInfo.cs" />
-    <Compile Include="HomeNetwork\Machines.cs" />
-    <Compile Include="HomeNetwork\NetworkDevices.cs" />
-    <Compile Include="HomeNetwork\RouterSetups.cs" />
-    <Compile Include="HomeNetwork\Users.cs" />
+    <Compile Include="Models\IPtable.cs" />
+    <Compile Include="Models\Machines.cs" />
+    <Compile Include="Models\NetworkDevices.cs" />
+    <Compile Include="Models\RouterSetups.cs" />
+    <Compile Include="Models\Users.cs" />
     <Compile Include="IServiceHN.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceAuthenticator.cs" />
@@ -89,21 +91,21 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="HomeNetwork\HomeNetwork.dbml">
+    <Content Include="Data\HomeNetwork.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>HomeNetwork.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="HomeNetwork\HomeNetwork.dbml.views">
+    <Content Include="Data\HomeNetwork.dbml.views">
       <DependentUpon>HomeNetwork.dbml</DependentUpon>
     </Content>
-    <Content Include="HomeNetwork\HomeNetwork.dbml.syncPrefs">
+    <Content Include="Data\HomeNetwork.dbml.syncPrefs">
       <DependentUpon>HomeNetwork.dbml</DependentUpon>
     </Content>
-    <Content Include="HomeNetwork\HomeNetwork.dbml.namePrefs">
+    <Content Include="Data\HomeNetwork.dbml.namePrefs">
       <DependentUpon>HomeNetwork.dbml</DependentUpon>
     </Content>
-    <Content Include="Data Layer\Northwind.bak" />
+    <Content Include="Data\Northwind.bak" />
     <None Include="Properties\PublishProfiles\Local Publish.pubxml" />
     <Content Include="Web.config" />
     <None Include="Properties\PublishProfiles\TwinHome.pubxml" />
@@ -118,12 +120,12 @@
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="HomeNetwork\HomeNetwork.dbml.layout">
+    <None Include="Data\HomeNetwork.dbml.layout">
       <DependentUpon>HomeNetwork.dbml</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="HomeNetwork\HomeNetwork.dbml.views_def.layout">
+    <EmbeddedResource Include="Data\HomeNetwork.dbml.views_def.layout">
       <DependentUpon>HomeNetwork.dbml</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
