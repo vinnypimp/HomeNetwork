@@ -66,18 +66,6 @@ namespace Authentication
             get { return _loginHeader; }
             set { _loginHeader = value; base.OnPropertyChanged("LoginHeader"); }
         }
-        //public string AuthenticatedUser
-        //{
-        //    get
-        //    {
-        //        if (IsAuthenticated)
-        //            return string.Format("Signed in as {0}. {1}",
-        //                Thread.CurrentPrincipal.Identity.Name,
-        //                Thread.CurrentPrincipal.IsInRole("Administrators") ? "You are an Administrator!"
-        //                    : "You are NOT a member of the Administrators Group.");
-        //        return "Not Authenticated!";
-        //    }
-        //}
 
         public string Status
         {
@@ -117,7 +105,7 @@ namespace Authentication
             try
             {
                 // Validate credentials through the authentication service
-                User user = _authenticationService.AuthenticateUser(Username, clearTextPassword);
+                AuthService.UserInfo user = _authenticationService.AuthenticateUser(Username, clearTextPassword);
 
                 // Get the Current Principal Object
                 CustomPrincipal customPrincipal = Thread.CurrentPrincipal as CustomPrincipal;
