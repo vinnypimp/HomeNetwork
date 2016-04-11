@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Runtime.Serialization;
 
-namespace Authentication
+namespace Authentication.Model
 {
     [DataContract]
     [Serializable]
@@ -15,5 +15,8 @@ namespace Authentication
         
         [DataMember]
         public string HashPassword { get; set; }
+
+        [DataMember]
+        public string AppName { get; set; }
     }
 }

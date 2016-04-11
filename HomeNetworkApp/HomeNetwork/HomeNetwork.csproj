@@ -80,11 +80,12 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Authentication\AuthenticationService.cs" />
-    <Compile Include="Authentication\Credentials.cs" />
+    <Compile Include="Authentication\Model\Credentials.cs" />
     <Compile Include="Authentication\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Authentication\LoginViewModel.cs" />
+    <Compile Include="Authentication\Model\NewUser.cs" />
     <Compile Include="Authentication\StartUp.cs" />
     <Compile Include="Authentication\UserRegistration.xaml.cs">
       <DependentUpon>UserRegistration.xaml</DependentUpon>
