@@ -60,6 +60,7 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -78,10 +79,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Authentication\AuthenticationService.cs" />
+    <Compile Include="Authentication\Model\Credentials.cs" />
     <Compile Include="Authentication\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Authentication\LoginViewModel.cs" />
+    <Compile Include="Authentication\Model\NewUser.cs" />
     <Compile Include="Authentication\StartUp.cs" />
     <Compile Include="NewUserRegistration\Model\NewUser.cs" />
     <Compile Include="NewUserRegistration\RelayCommand.cs" />

@@ -19,8 +19,8 @@
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="35"/>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="30"/>
+                <RowDefinition Height="33"/>
+                <RowDefinition Height="33"/>
                 <RowDefinition Height="35"/>
                 <RowDefinition Height="25*" />
             </Grid.RowDefinitions>
@@ -30,7 +30,7 @@
                Width="268" Grid.ColumnSpan="3"/>
             <TextBlock Text="Username:" Grid.Row="1" Grid.Column="0" TextAlignment="Right" VerticalAlignment="Center"/>
             <TextBlock Text="Password:" Grid.Row="2" Grid.Column="0" TextAlignment="Right" VerticalAlignment="Center"/>
-            <TextBox Text="{Binding Username}" Padding="5" Grid.Row="1" Grid.Column="1" Margin="10,3,10,2" />
+            <TextBox Text="{Binding Username}" Padding="5" Grid.Row="1" Grid.Column="1" Margin="10,3,10,2" Height="Auto"/>
             <PasswordBox x:Name="passwordBox" Padding="5" Grid.Row="2" Grid.Column="1" Margin="10,3,10,2" />
             <Button Content="Log In" Grid.Row="2" Grid.Column="2" Command="{Binding LoginCommand}"
         		CommandParameter="{Binding ElementName=passwordBox}" FontSize="11" VerticalAlignment="Center"
