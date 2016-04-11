@@ -83,9 +83,13 @@
     </Compile>
     <Compile Include="Authentication\LoginViewModel.cs" />
     <Compile Include="Authentication\StartUp.cs" />
-    <Compile Include="Authentication\UserRegistration.xaml.cs">
+    <Compile Include="NewUserRegistration\Model\NewUser.cs" />
+    <Compile Include="NewUserRegistration\RelayCommand.cs" />
+    <Compile Include="NewUserRegistration\ViewModel\ViewModelBase.cs" />
+    <Compile Include="NewUserRegistration\View\UserRegistration.xaml.cs">
       <DependentUpon>UserRegistration.xaml</DependentUpon>
     </Compile>
+    <Compile Include="NewUserRegistration\ViewModel\UserRegistrationViewModel.cs" />
     <Compile Include="Helpers\BoolToColorConverter.cs" />
     <Compile Include="Helpers\ConvertToList.cs" />
     <Compile Include="Authentication\Helpers\DelegateCommand.cs" />
@@ -113,7 +117,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Authentication\UserRegistration.xaml">
+    <Page Include="NewUserRegistration\Resources\RegDictionary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NewUserRegistration\View\UserRegistration.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -196,6 +204,7 @@
       <Name>Authentication</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
