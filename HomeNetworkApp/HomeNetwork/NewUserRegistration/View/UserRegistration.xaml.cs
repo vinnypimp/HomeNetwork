@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace HomeNetwork.Authentication
+namespace NewUserRegistration.View
 {
     /// <summary>
     /// Interaction logic for UserRegistration.xaml
