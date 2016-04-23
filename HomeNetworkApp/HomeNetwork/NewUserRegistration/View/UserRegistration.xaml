@@ -1,0 +1,57 @@
+﻿<UserControl x:Class="NewUserRegistration.View.UserRegistration"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:viewModels="clr-namespace:NewUserRegistration.ViewModel"
+             xmlns:w="clr-namespace:NewUserRegistration.Helpers"
+             mc:Ignorable="d" Height="360" Width="500"
+             Visibility="{Binding Path=IsVisible, Converter={StaticResource booleanToVisibilityConverter}}">
+
+    <Grid>
+        <Border Style="{StaticResource Borders}">
+            <Grid HorizontalAlignment="Left" Height="340" Margin="10,10,0,0" VerticalAlignment="Top" Width="480" RenderTransformOrigin="0.504,0.462" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120" />
+                    <ColumnDefinition Width="120" />
+                    <ColumnDefinition Width="120" />
+                    <ColumnDefinition Width="120*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60" />
+                    <RowDefinition Height="57" />
+                    <RowDefinition Height="57" />
+                    <RowDefinition Height="57" />
+                    <RowDefinition Height="57" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Border Grid.ColumnSpan="4" Margin="-11,0,0,0" Style="{StaticResource Borders}" Width="491" >
+                    <TextBlock Grid.Row="0" FontSize="20" FontWeight="Bold" Foreground="Navy" Grid.ColumnSpan="3" 
+                           Width="394" Height="28" Text="New User Registration"
+                           HorizontalAlignment="Center" VerticalAlignment="Top"
+                           Style="{StaticResource TxtBlock}" />
+                </Border>
+                <TextBlock Text="Username:" TextAlignment="Right" VerticalAlignment="Center" Margin="48,28,8,13" Grid.Row="1"/>
+                <TextBox Text="{Binding NewUser.UserName}" Style="{StaticResource TxtBox}" Margin="2,22,10,10" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"  />
+                <Button Content="Check!" Grid.Column="3" Margin="0,24,0,0" Grid.Row="1" Style="{StaticResource Btn}" Height="22"/>
+                <TextBlock Text="Password:" Grid.Row="2" Grid.Column="0" TextAlignment="Right" VerticalAlignment="Center" Margin="48,14,8,27"/>
+                <PasswordBox x:Name="pbox" Style="{StaticResource PsswdBox}" Grid.Row="2" Margin="2,10,0,22" Grid.Column="1" Height="33" />
+                <TextBlock Text="Password:" Grid.Row="2" Grid.Column="2" TextAlignment="Right" VerticalAlignment="Center" Margin="5,14,51,27"/>
+                <PasswordBox x:Name="passwordBox_Copy" Style="{StaticResource PsswdBox}" Grid.Row="2" Margin="77,10,45,22" Grid.Column="2" Grid.ColumnSpan="2" />
+                <TextBlock Text="First Name:" Grid.Column="0" TextAlignment="Right" VerticalAlignment="Center" Margin="48,19,8,22" Grid.Row="3"/>
+                <TextBox Text="{Binding NewUser.FirstName}" Style="{StaticResource TxtBox}" Margin="0,10,0,22" Grid.Column="1" Grid.Row="3" />
+                <TextBlock Text="Last Name:" Grid.Column="2" TextAlignment="Right" VerticalAlignment="Center" Margin="5,19,51,22" Grid.Row="3"/>
+                <TextBox Text="{Binding NewUser.LastName}" Style="{StaticResource TxtBox}" Margin="77,10,43,22" Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="2" />
+                <TextBlock Text="Email Address:" TextAlignment="Right" VerticalAlignment="Center" Margin="23,16,8,25" Grid.Row="4"/>
+                <TextBox Text="{Binding NewUser.Email}" Style="{StaticResource TxtBox}" Margin="0,10,10,22" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2"  />
+                <Button Content="Register" Command="{Binding Path=Register}" Grid.Column="3" Margin="0,12,0,0" Grid.Row="4" Style="{StaticResource Btn}" Height="22"
+                        CommandParameter="{Binding ElementName=pbox}"/>
+                <TextBlock x:Name="txtAuthMsg" Text="{Binding Status}" Width="470" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="4"
+        	            FontSize="12" HorizontalAlignment="Right" TextWrapping="Wrap" FontWeight="Bold"
+        	            TextAlignment="Center"
+        	            Visibility="{Binding AuthVisible, Converter={StaticResource booleanToVisibilityConverter}}" Margin="0,0,10,0" />
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

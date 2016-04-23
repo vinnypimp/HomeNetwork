@@ -1,0 +1,26 @@
+{
+NetDevices: [
+{
+IPaddress: "12.6.9.1",
+Location: "Attic",
+LocationID: 0,
+MacAddress: "ZZ-YY-XX-11-77",
+NetworkDeviceID: "ACTIONTECM12_720",
+NetworkDeviceName: "ACTIONTEC M1",
+NetworkDeviceType: "Router",
+NetworkDeviceTypeID: 0,
+NetworkPorts: 4
+},
+{
+IPaddress: "12.6.9.15",
+Location: "Family Room",
+LocationID: 0,
+MacAddress: "AA-BB-CC-11-22",
+NetworkDeviceID: "AIRPORTTIMECAPSULE3_325",
+NetworkDeviceName: "AIRPORT TIME CAPSULE",
+NetworkDeviceType: "Router",
+NetworkDeviceTypeID: 0,
+NetworkPorts: 3
+}
+]
+}

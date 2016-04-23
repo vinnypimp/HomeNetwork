@@ -1,0 +1,210 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:views="clr-namespace:HomeNetwork.View"
+                    xmlns:viewModels="clr-namespace:HomeNetwork.ViewModel"
+                    xmlns:helpers="clr-namespace:HomeNetwork.Helpers">
+    
+    <helpers:BoolToColorConverter x:Key="ButtonBrushChange" />
+    
+    <DataTemplate DataType="{x:Type viewModels:UserViewModel}">
+        <views:UserView />
+    </DataTemplate>
+
+    <SolidColorBrush x:Key="IsMouseOverBackground" Color="AliceBlue" />
+    <SolidColorBrush x:Key="WindowBrush" Color="#F0F0F2" />
+    <SolidColorBrush x:Key="BackgroundDflt" Color="#ADD8E6" />
+    <SolidColorBrush x:Key="DgridBackground" Color="#ADD8E6" Opacity=".25" />
+    <SolidColorBrush x:Key="IsPressedBrush" Color="Gainsboro" />
+    <SolidColorBrush x:Key="ButtonBrush" Color="PowderBlue" />
+    <SolidColorBrush x:Key="PanelGray" Color="#E3E3E3" />
+    <LinearGradientBrush x:Key="DefaultButtonBrush" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Color="#FFF3F3F3" Offset="0"/>
+        <GradientStop Color="#FFEBEBEB" Offset="0.5"/>
+        <GradientStop Color="#FFDDDDDD" Offset="1"/>
+    </LinearGradientBrush>
+   
+    <Style TargetType="{x:Type Window}">
+        <Setter Property="FontFamily" Value="Segoe UI" />
+    </Style>
+    
+    <Style x:Key="dfltBackground" TargetType="{x:Type Window}" >
+        <Setter Property="Background" Value="{StaticResource WindowBrush}" />
+    </Style>
+    
+    <Style x:Key="GridDflt" TargetType="Grid" >
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+    </Style>
+    
+    <Style x:Key="CanvasDflt" TargetType="Canvas" >
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="Background" Value="{StaticResource BackgroundDflt}" />
+        <Setter Property="Opacity" Value="0.25" />
+    </Style>
+
+    <!-- BORDER STYLES BEGIN -->
+    <Style x:Key="Borders" TargetType="Border" >
+        <Setter Property="BorderBrush" Value="Black" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="Background" Value="{StaticResource BackgroundDflt}" />
+        <Setter Property="Opacity" Value="0.25" />
+    </Style>
+   
+    <Style x:Key="PanelBorders" TargetType="Border" BasedOn="{StaticResource Borders}" >
+        <Setter Property="Background" Value="{StaticResource PanelGray}" />
+        <Setter Property="Opacity" Value="1" />
+    </Style>
+    <!-- BORDER STYLES END -->
+
+    <!-- BUTTON STYLES BEGIN -->
+    <Style x:Key="btnMain" TargetType="Button">
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Width" Value="75"/>
+        <Setter Property="Height" Value="20" />
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Foreground" Value="DarkBlue"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="Background" Value="{StaticResource DefaultButtonBrush}" />
+        <Setter Property="Border.CornerRadius" Value="5,5,5,5" />
+        <!--<Style.Triggers>
+            <DataTrigger Binding="{Binding Reviewed, Converter={StaticResource ButtonBrushChange}}"
+                         Value="True">
+                <Setter Property="Background" Value="Red" />
+            </DataTrigger>
+        </Style.Triggers>-->
+    </Style>
+    
+    <Style x:Key="ToggleMain" BasedOn="{StaticResource {x:Type ToggleButton}}" TargetType="RadioButton" >
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Width" Value="75"/>
+        <Setter Property="Height" Value="25" />
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Foreground" Value="DarkBlue"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="Border.CornerRadius" Value="5,5,5,5" />
+    </Style>
+
+    <Style x:Key="HyperlinkLikeButton" TargetType="Button">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <ContentPresenter />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.HotTrackBrushKey}}" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <ControlTemplate.Resources>
+                                <Style TargetType="{x:Type TextBlock}">
+                                    <Setter Property="TextDecorations" Value="Underline" />
+                                </Style>
+                            </ControlTemplate.Resources>
+                            <ContentPresenter />
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="RadioBtn" TargetType="RadioButton">
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="FontWeight" Value="Bold" />
+    </Style>
+    <!-- BUTTON STYLES END -->
+
+    <Style x:Key="CboBox" TargetType="ComboBox">
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="Width" Value="100" />
+        <Setter Property="Border.CornerRadius" Value="5,5,5,5" />
+    </Style>
+
+    <Style x:Key="Labels" TargetType="Label">
+        <Setter Property="FontSize" Value="11"/>
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+    </Style>
+
+    <Style x:Key="TxtBox" TargetType="TextBox">
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="TextAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="Width" Value="120" />
+        <Setter Property="Height" Value="23" />
+        <Setter Property="Margin" Value="5" />
+    </Style>
+
+    <!-- BUTTON STYLES END -->
+    
+    <!-- DATA GRID STYLES BEGIN -->
+    <Style x:Key="HeaderCells" TargetType="{x:Type DataGridColumnHeader}">
+        <Setter Property="Background" Value="{StaticResource DgridBackground}" />
+        <Setter Property="BorderBrush" Value="Black" />
+        <Setter Property="BorderThickness" Value=".5" />
+        <Setter Property="Height" Value="23" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <!--<Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Center" />-->
+    </Style>
+    
+    <Style x:Key="DgridDflt" TargetType="{x:Type DataGrid}" >
+        <Setter Property="ColumnHeaderStyle" Value="{DynamicResource HeaderCells}" />
+        <Setter Property="AutoGenerateColumns" Value="False" />
+        <Setter Property="RowHeaderWidth" Value="0" />
+        <Setter Property="BorderBrush" Value="Black" />
+        <Setter Property="BorderThickness" Value=".5" />
+        <Setter Property="SelectionMode" Value="Single" />
+        <Setter Property="SelectionUnit" Value="FullRow" />
+        <Setter Property="IsReadOnly" Value="True" />
+    </Style>
+    
+    <Style TargetType="DataGridCell" >
+        <Setter Property="TextBlock.TextAlignment" Value="Center" />
+    </Style>
+
+    <Style x:Key="CenterAlignContentStyle" TargetType="{x:Type DataGridCell}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type DataGridCell}">
+                    <Grid Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center"
+                                      HorizontalAlignment="Center" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="LeftAlignContentStyle" TargetType="{x:Type DataGridCell}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type DataGridCell}">
+                    <Grid Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center"
+                                      HorizontalAlignment="Left" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- DATA GRID STYLES END -->
+
+
+</ResourceDictionary>

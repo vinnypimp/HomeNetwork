@@ -1,0 +1,39 @@
+{
+IPtable: [
+{
+DeviceName: "ACTIONTEC M1",
+HostName: "ACTIONTEC M1",
+IPaddress: "12.6.9.1",
+MacAddress: "ZZ-YY-XX-11-77",
+NetworkDevice: "Router"
+},
+{
+DeviceName: "AIRPORT TIME CAPSULE",
+HostName: "AIRPORT TIME CAPSULE",
+IPaddress: "12.6.9.15",
+MacAddress: "AA-BB-CC-11-22",
+NetworkDevice: "Router"
+},
+{
+DeviceName: "LENOVO Y500",
+HostName: "LENOVO-Y500",
+IPaddress: "12.6.9.55",
+MacAddress: "11.22.33.44.55",
+NetworkDevice: "AIRPORT TIME CAPSULE"
+},
+{
+DeviceName: "WIN7ULT64",
+HostName: "WIN7ULT64",
+IPaddress: "12.6.9.55",
+MacAddress: "11-AA-22-BB-55",
+NetworkDevice: "AIRPORT TIME CAPSULE"
+},
+{
+DeviceName: "GINA-N5110",
+HostName: "GINA-N5110",
+IPaddress: "12.6.9.101",
+MacAddress: "10.20.25.55.AW",
+NetworkDevice: "AIRPORT TIME CAPSULE"
+}
+]
+}

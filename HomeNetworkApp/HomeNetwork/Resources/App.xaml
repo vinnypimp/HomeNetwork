@@ -1,0 +1,27 @@
+﻿<Application x:Class="HomeNetwork.Resources.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:auth="clr-namespace:Authentication"
+             xmlns:newRegVM="clr-namespace:NewUserRegistration.ViewModel"
+             xmlns:newRegView="clr-namespace:NewUserRegistration.View"
+             xmlns:viewModels="clr-namespace:HomeNetwork.ViewModel"
+             xmlns:views="clr-namespace:HomeNetwork.View">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="MyResources.xaml" />
+                <ResourceDictionary Source="/NewUserRegistration/Resources/RegDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <DataTemplate DataType="{x:Type auth:LoginViewModel}">
+                <auth:LoginView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModels:UserViewModel}">
+                <views:UserView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type newRegVM:UserRegistrationViewModel}">
+                <newRegView:UserRegistration/>
+            </DataTemplate>
+            <BooleanToVisibilityConverter x:Key="booleanToVisibilityConverter"/>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

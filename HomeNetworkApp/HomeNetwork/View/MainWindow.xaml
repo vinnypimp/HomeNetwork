@@ -1,0 +1,45 @@
+﻿<Window x:Class="HomeNetwork.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:viewModels="clr-namespace:HomeNetwork.ViewModel"
+        Title="Home Network" Height="655" Width="1010">
+
+    <!--<Window.DataContext>
+        <viewModels:MainWindowModel></viewModels:MainWindowModel>
+    </Window.DataContext>-->
+
+    <Grid>
+        <Canvas Height="475" Margin="10,100,0,0" Width="972" >
+            <StackPanel Height="85" Canvas.Left="10" Canvas.Top="10" Width="540" >
+                <!--<Border Height="84" Margin="0,0,-402,0" Style="{StaticResource Borders}"/>-->
+            </StackPanel>
+            <Canvas Name="cnvView" Height="351" Canvas.Left="-7" Canvas.Top="100" Width="972" >
+                <Grid Height="351" Width="975" >
+                    <ContentControl Margin="5,0,0,0" Content="{Binding DisplayViewModel}"
+                        HorizontalAlignment="{Binding HzAlign}" 
+                        VerticalAlignment="{Binding VtAlign}" ></ContentControl>
+                </Grid>
+            </Canvas>
+        </Canvas>
+
+        <Border Height="75" Margin="10,10,0,0" Width="972" Style="{StaticResource Borders}" />
+        <Grid HorizontalAlignment="Left" Height="75" Margin="10,10,0,0" VerticalAlignment="Top" Width="972" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="11"/>
+                <ColumnDefinition Width="160*"/>
+                <ColumnDefinition Width="160*"/>
+                <ColumnDefinition Width="160*"/>
+                <ColumnDefinition Width="160*"/>
+                <ColumnDefinition Width="160*"/>
+                <ColumnDefinition Width="11"/>
+            </Grid.ColumnDefinitions>
+
+            <RadioButton Name="btnUsers" Command="{Binding Path=UserButton}" Content="Users" Grid.Column="1" Style="{StaticResource ToggleMain}"/>
+            <RadioButton Name="btnMachines" Command="{Binding Path=UserButton}" Content="Machines" Grid.Column="2" Style="{StaticResource ToggleMain}" />
+            <RadioButton Name="btnNetDevices" Content="Net Devices" Grid.Column="3" Style="{StaticResource ToggleMain}"/>
+            <RadioButton Name="btnSetups" Content="Setups" Grid.Column="4" Style="{StaticResource ToggleMain}"/>
+            <RadioButton Name="btnAdmin" Content="Admin" Grid.Column="5" Style="{StaticResource ToggleMain}"/>
+        </Grid>
+        <StatusBar BorderBrush="DarkGray" BorderThickness="1" Height="34" Margin="14,580,0,0" Width="972" HorizontalAlignment="Left" VerticalAlignment="Top" />
+    </Grid>
+</Window>

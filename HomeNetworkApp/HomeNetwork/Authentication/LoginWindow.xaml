@@ -1,0 +1,42 @@
+﻿<Window x:Class="Authentication.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Login Window" Height="203" Width="296">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="booleanToVisibilityConverter"/>
+    </Window.Resources>
+    <Grid Background="{StaticResource BackgroundDflt}" Opacity=".75" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" MinWidth="64"/>
+            <ColumnDefinition Width="159*"/>
+            <ColumnDefinition Width="65*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="25*" />
+        </Grid.RowDefinitions>
+        <TextBlock Name="txtAuthMsg" Text="{Binding AuthenticatedUser}" Grid.Row="0"
+               FontSize="14" HorizontalAlignment="Right" TextWrapping="Wrap" FontWeight="Bold"
+               Margin="0,4,10,0" TextAlignment="Center"
+               Visibility="{Binding TxtAuthVisible, Converter={StaticResource booleanToVisibilityConverter}}"
+               Width="268" Grid.ColumnSpan="3"/>
+        <TextBlock Text="Username:" Grid.Row="1" Grid.Column="0" TextAlignment="Right" VerticalAlignment="Center"/>
+        <TextBlock Text="Password:" Grid.Row="2" Grid.Column="0" TextAlignment="Right" VerticalAlignment="Center"/>
+        <TextBox Text="{Binding Username}" Padding="5" Grid.Row="1" Grid.Column="1" Margin="10,3,10,2" />
+        <PasswordBox x:Name="passwordBox" Padding="5" Grid.Row="2" Grid.Column="1" Margin="10,3,10,2" />
+        <Button Content="Log In" Grid.Row="3" Grid.Column="1" Padding="5" Command="{Binding LoginCommand, Mode=OneTime}"
+        		CommandParameter="{Binding ElementName=passwordBox}" FontSize="11"
+        		HorizontalContentAlignment="Center" Width="75" Height="27"/>
+        <TextBlock Text="{Binding Status}" Grid.Row="4" Grid.Column="1"
+               HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Red" TextWrapping="Wrap" Margin="112,0,47,24" Grid.RowSpan="2" Height="16" Width="0" />
+        <Button Name="NewUser" Style="{StaticResource HyperlinkLikeButton}" 
+                Content="New User - Register Here" Height="22" 
+                Grid.Row="4" Grid.Column="1" 
+                HorizontalContentAlignment="Center"
+                VerticalAlignment="Center"
+                Margin="10,12,10,8"/>
+    </Grid>
+</Window>
